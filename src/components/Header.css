@@ -9,9 +9,16 @@
 }
 
 .header-logo {
+    display: flex;
+    align-items: center;
     font-size: 1.5em;
     font-weight: bold;
     cursor: pointer;
+}
+
+.logo-image {
+    height: 40px; /* Установите нужный размер логотипа */
+    margin-right: 10px;
 }
 
 .header-nav {
@@ -20,7 +27,7 @@
 }
 
 .header-button {
-    background-color: gray;
+    background-color: #61dafb;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -34,5 +41,5 @@
 }
 
 .header-button:hover {
-    background-color: darkgray;
+    background-color: #21a1f1;
 }
