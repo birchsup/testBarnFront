@@ -1,0 +1,38 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #282c34;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.header-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.header-button {
+    background-color: gray;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: darkgray;
+}

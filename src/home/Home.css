@@ -1,0 +1,15 @@
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px); /* Высота экрана минус высота заголовка */
+    background-image: url('../../public/123.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
