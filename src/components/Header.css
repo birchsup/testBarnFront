@@ -1,11 +1,15 @@
 .app-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #282c34;
+    background-color: black;
     color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
 }
 
 .header-logo {
@@ -14,6 +18,7 @@
     font-size: 1.5em;
     font-weight: bold;
     cursor: pointer;
+    margin-right: 30px; /* Увеличено расстояние для улучшения читаемости */
 }
 
 .logo-image {
@@ -23,23 +28,26 @@
 
 .header-nav {
     display: flex;
-    gap: 10px;
+    gap: 15px; /* Увеличено расстояние между кнопками */
 }
 
 .header-button {
-    background-color: #61dafb;
+    background-color: black; /* Более темный цвет для контраста */
     border: none;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Увеличено значение padding для большей ширины */
+    min-width: 160px; /* Минимальная ширина кнопок */
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 1em;
     cursor: pointer;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* Предотвращение переноса текста */
 }
 
 .header-button:hover {
-    background-color: #21a1f1;
+    background-color: #282c34; /* Цвет заливки заголовка */
+    color: #2ff1f8; /* Цвет текста при наведении */
 }
