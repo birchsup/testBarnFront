@@ -6,7 +6,7 @@ const CreateTestCase = () => {
         name: '',
         preconditions: '',
         priority: '',
-        isAutomated: false,
+        isAutomated: 'want to automate',
         steps: [
             { step: 1, action: '', expected_result: '' }
         ],
@@ -59,45 +59,55 @@ const CreateTestCase = () => {
     };
 
     return (
-        <div className="create-test-case">
-            <h1>Create Test Case</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Name:</label>
-                    <input type="text" name="name" value={testCase.name} onChange={handleChange} required />
+        <div className="test-case-container">
+            <form onSubmit={handleSubmit} className="test-case-form">
+                <div className="test-case-detail">
+                    <div className="form-group">
+                        <label>Priority:</label>
+                        <input type="text" name="priority" value={testCase.priority} onChange={handleChange} />
+                    </div>
+                    <div className="form-group">
+                        <label>Is Automated:</label>
+                        <select name="isAutomated" value={testCase.isAutomated} onChange={handleChange}>
+                            <option value="want to automate">Want to automate</option>
+                            <option value="can't be automated">Can't be automated</option>
+                            <option value="automated">Automated</option>
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <label>Created By:</label>
+                        <input type="text" name="created_by" value={testCase.created_by} onChange={handleChange} required />
+                    </div>
+                    <div className="form-group">
+                        <label>Created At:</label>
+                        <input type="date" name="created_at" value={testCase.created_at} onChange={handleChange} required />
+                    </div>
                 </div>
-                <div className="form-group">
-                    <label>Preconditions:</label>
-                    <input type="text" name="preconditions" value={testCase.preconditions} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                    <label>Priority:</label>
-                    <input type="text" name="priority" value={testCase.priority} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                    <label>Is Automated:</label>
-                    <input type="checkbox" name="isAutomated" checked={testCase.isAutomated} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                    <label>Created By:</label>
-                    <input type="text" name="created_by" value={testCase.created_by} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                    <label>Created At:</label>
-                    <input type="date" name="created_at" value={testCase.created_at} onChange={handleChange} required />
-                </div>
-                <div className="steps">
-                    <h2>Steps</h2>
+                <div className="test-case-steps">
+                    <div className="form-group">
+                        <label>Name:</label>
+                        <input type="text" name="name" value={testCase.name} onChange={handleChange} required />
+                        <label>Preconditions:</label>
+                        <textarea name="preconditions" value={testCase.preconditions} onChange={handleChange} rows="3" />
+                    </div>
                     {testCase.steps.map((step, index) => (
-                        <div key={index} className="form-group">
+                        <div key={index} className="form-group-step">
                             <label>Step {index + 1}</label>
-                            <input type="text" name="action" placeholder="Action" value={step.action} onChange={(e) => handleStepChange(index, e)} required />
-                            <input type="text" name="expected_result" placeholder="Expected Result" value={step.expected_result} onChange={(e) => handleStepChange(index, e)} required />
+                            <div className="step-row">
+                                <textarea className="action-field" name="action" placeholder="Action"
+                                          value={step.action} onChange={(e) => handleStepChange(index, e)} rows="3"
+                                          required />
+                                <textarea className="result-field" name="expected_result" placeholder="Expected Result"
+                                          value={step.expected_result} onChange={(e) => handleStepChange(index, e)}
+                                          rows="3" required />
+                                {index === testCase.steps.length - 1 && (
+                                    <button type="button" onClick={addStep} className="add-step-button">Add Step</button>
+                                )}
+                            </div>
                         </div>
                     ))}
-                    <button type="button" onClick={addStep}>Add Step</button>
+                    <button type="submit" className="create-button">Create</button>
                 </div>
-                <button type="submit">Create Test Case</button>
             </form>
         </div>
     );

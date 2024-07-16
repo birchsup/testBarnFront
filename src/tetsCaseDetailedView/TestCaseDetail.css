@@ -1,19 +1,18 @@
 .test-case-container {
     display: flex;
-    flex-direction: row;
     padding: 20px;
-    height: 100vh;
+    height: calc(100vh - 40px); /* Уменьшение высоты на отступы */
     box-sizing: border-box;
 }
 
-.test-case-detail {
-    flex: 3;
+.test-case-detail-view {
+    flex-grow: 1;
     padding: 20px;
-    margin-right: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
+    margin-right: 20px; /* Отступ в 20px от правой части */
 }
 
 .test-case-title {
@@ -47,12 +46,14 @@
 }
 
 .test-case-meta {
-    flex: 1;
+    flex: 0 0 300px; /* Фиксированная ширина */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
+    height: fit-content; /* Высота по содержимому */
+    margin-left: auto; /* Прижать к правому краю */
 }
 
 .meta-item {

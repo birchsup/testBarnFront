@@ -51,3 +51,18 @@
     background-color: #282c34; /* Цвет заливки заголовка */
     color: #2ff1f8; /* Цвет текста при наведении */
 }
+
+.header-button.active {
+    /*color: #2ff1f8; !* Цвет текста для активной кнопки *!*/
+    position: relative;
+}
+
+.header-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Позиционирование линии снизу кнопки */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #2ff1f8; /* Цвет линии */
+}

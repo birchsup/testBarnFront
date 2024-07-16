@@ -18,11 +18,11 @@ const TestCaseDetail = () => {
     }
 
     const preconditions = testCase.test.preconditions ? testCase.test.preconditions : 'NONE';
-    const isAutomated = testCase.test.is_automated ? 'Yes' : 'No';
+    const isAutomated = testCase.test.isAutomated ?? 'No';
 
     return (
         <div className="test-case-container">
-            <div className="test-case-detail">
+            <div className="test-case-detail-view">
                 <h1 className="test-case-title">{testCase.test.name}</h1>
                 <div><strong>Preconditions:</strong> {preconditions}</div>
                 <table className="test-case-table">
