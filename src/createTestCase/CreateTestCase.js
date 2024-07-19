@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './createTestCase.css';
+import {link} from "../ngrock";
 
 const CreateTestCase = () => {
     const [testCase, setTestCase] = useState({
@@ -42,10 +43,12 @@ const CreateTestCase = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://localhost:8080/testcases', {
+        const response = await fetch(`${link}/testcases`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true'
+
             },
             body: JSON.stringify({ id: testCase.id, test: testCase })
         });
