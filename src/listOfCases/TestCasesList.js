@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './listOfCases.css';
+import {link} from "../ngrock";
 
 const TestCasesList = () => {
     const [testCases, setTestCases] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:8080/testcases')
+        fetch(`${link}/testcases`,
+        {  headers: {
+            'ngrok-skip-browser-warning': 'true'
+        }})
             .then(response => response.json())
             .then(data => setTestCases(data))
             .catch(error => console.error('Error fetching test cases:', error));

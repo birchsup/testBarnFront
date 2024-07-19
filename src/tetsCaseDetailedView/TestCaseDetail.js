@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './TestCaseDetail.css';
+import {link} from "../ngrock";
 
 const TestCaseDetail = () => {
     const { id } = useParams();
     const [testCase, setTestCase] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:8080/testcases/${id}`)
+        fetch(`${link}/testcases/${id}`,
+            {  headers: {
+                    'ngrok-skip-browser-warning': 'true'
+                }})
             .then(response => response.json())
             .then(data => setTestCase(data))
             .catch(error => console.error('Error fetching test case:', error));
