@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './listOfCases.css';
-import {link} from "../ngrock";
+import { link } from '../ngrock';
 
 const TestCasesList = () => {
     const [testCases, setTestCases] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`${link}/testcases`,
-        {  headers: {
-            'ngrok-skip-browser-warning': 'true'
-        }})
+        fetch(`${link}/testcases`, {
+            headers: {
+                'ngrok-skip-browser-warning': 'true'
+            }
+        })
             .then(response => response.json())
             .then(data => setTestCases(data))
             .catch(error => console.error('Error fetching test cases:', error));
@@ -22,12 +23,12 @@ const TestCasesList = () => {
     };
 
     return (
-        <div>
+        <div className="test-case-list-container">
             <h1>Test Cases</h1>
             {testCases.length === 0 ? (
                 <p>No test cases available</p>
             ) : (
-                <table>
+                <table className="test-case-list-table">
                     <thead>
                     <tr>
                         <th>ID</th>

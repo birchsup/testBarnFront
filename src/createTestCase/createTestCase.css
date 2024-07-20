@@ -62,7 +62,6 @@
     align-items: flex-start;
 }
 
-.form-group-step .action-field,
 .form-group-step .result-field {
     flex: 1;
     margin-bottom: 10px;

@@ -46,7 +46,7 @@
 }
 
 .test-case-meta {
-    flex: 0 0 300px; /* Фиксированная ширина */
+    flex: 0 0 fit-content; /* Фиксированная ширина */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -56,7 +56,142 @@
     margin-left: auto; /* Прижать к правому краю */
 }
 
+.meta-item label {
+    margin-right: 5px;
+    min-width: fit-content; /* Устанавливаем минимальную ширину для выравнивания */
+    display: flex;
+    align-items: center;
+}
+
 .meta-item {
     margin-bottom: 10px;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.editable-input {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+.editable-input:focus {
+    outline: none;
+}
+
+.editable-textarea {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;  /*  соответствия высоты строки */
+    font-family: inherit;  /*  наследования шрифта */
+    resize: none;
+    overflow: hidden;
+}
+
+.editable-textarea:focus {
+    outline: none;
+    /*border-bottom: 1px solid #000;*/
+}
+
+/* Стиль для кнопок */
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: inherit;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 10px
+}
+
+/* Основные стили кнопок */
+.button-primary {
+    background-color: #007BFF;
+    color: white;
+}
+
+.button-primary:hover {
+    background-color: #0056b3;
+}
+
+.button-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.button-secondary:hover {
+    background-color: #5a6268;
+}
+
+.button-danger {
+    background-color: #ff000d;
+    color: white;
+}
+
+.button-danger:hover {
+    background-color: #c82333;
+}
+
+/* Дополнительные стили для кнопок */
+.add-step-button2 {
+    background-color: #28a745;
+    color: white;
+    margin-top: 10px;
+}
+
+.add-step-button2:hover {
+    background-color: #218838;
+}
+
+.delete-step-button2 {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-step-button:hover {
+    background-color: #c82333;
+}
+
+.edit-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: inherit;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* stiles for dropdown */
+select {
+    /*padding: 10px;*/
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    flex-grow: 1;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
 }
