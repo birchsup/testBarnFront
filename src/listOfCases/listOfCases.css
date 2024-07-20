@@ -1,24 +1,53 @@
-table {
+/* Общие стили для таблицы списка тест-кейсов */
+.test-case-list-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
+    font-family: 'Arial', sans-serif; /* Задаем современный шрифт */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    border-radius: 8px; /* Добавляем скругленные углы */
+    overflow: hidden; /* Обрезаем содержимое */
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    color: black; /* Устанавливаем цвет текста черным */
+/* Стили для заголовков таблицы списка тест-кейсов */
+.test-case-list-table th, .test-case-list-table td {
+    padding: 12px 15px; /* Увеличиваем отступы */
+    border-bottom: 1px solid #ddd; /* Изменяем границу на нижнюю */
+    color: black; /* Устанавливаем цвет текста темно-серым */
 }
 
-th {
-    background-color: #f2f2f2;
+.test-case-list-table th {
+    background-color: #007BFF; /* Меняем цвет фона заголовков */
+    color: white; /* Цвет текста белый */
     text-align: left;
+    font-weight: bold; /* Делаем текст жирным */
 }
 
-.clickable-row {
+/* Стили для строк таблицы списка тест-кейсов */
+.test-case-list-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Добавляем чередование строк */
+}
+
+.test-case-list-table tr:nth-child(odd) {
+    background-color: #ffffff; /* Чередование строк */
+}
+
+.test-case-list-table .clickable-row {
     cursor: pointer; /* Изменяем указатель мыши */
+    transition: background-color 0.8s ease; /* Добавляем плавный переход для фона */
 }
 
-.clickable-row:hover {
+.test-case-list-table .clickable-row:hover {
     background-color: #f1f1f1; /* Изменяем цвет строки при наведении */
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    .test-case-list-table {
+        font-size: 14px; /* Уменьшаем размер шрифта на мобильных устройствах */
+    }
+
+    .test-case-list-table th, .test-case-list-table td {
+        padding: 10px; /* Уменьшаем отступы */
+    }
 }

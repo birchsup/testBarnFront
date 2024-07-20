@@ -48,7 +48,6 @@ const CreateTestCase = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'ngrok-skip-browser-warning': 'true'
-
             },
             body: JSON.stringify({ id: testCase.id, test: testCase })
         });
