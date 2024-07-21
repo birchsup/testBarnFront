@@ -6,6 +6,8 @@ import TestCasesList from './listOfCases/TestCasesList';
 import TestCaseDetail from './tetsCaseDetailedView/TestCaseDetail';
 import CreateTestCase from './createTestCase/CreateTestCase';
 import Header from './components/Header';
+import TestSuitesList from './testSuites/list/listOftestSuites'
+import TestSuiteDetails from "./testSuites/detailedView/TestSuiteDetails";
 
 function App() {
     return (
@@ -18,6 +20,8 @@ function App() {
                         <Route path="/testcases" element={<TestCasesList />} />
                         <Route path="/testcases/:id" element={<TestCaseDetail />} />
                         <Route path="/create" element={<CreateTestCase />} />
+                        <Route path="/test-suites" element={<TestSuitesList/>} />
+                        <Route path="/test-suite" element={<TestSuiteDetails />} />
                     </Routes>
                 </main>
             </div>

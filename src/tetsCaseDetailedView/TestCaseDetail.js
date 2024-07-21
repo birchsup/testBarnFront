@@ -193,7 +193,7 @@ const TestCaseDetail = () => {
     }
 
     return (
-        <div className="test-case-container">
+        <div className="test-case-container" data-test-id="test-case-container">
             <div className="test-case-detail-view">
                 {editMode ? (
                     <>
@@ -205,13 +205,14 @@ const TestCaseDetail = () => {
                             rows="1"
                         />
                         <div>
-                            <strong>Preconditions:</strong>
+                            <strong data-test-id="preconditions">Preconditions:</strong>
                             <textarea
                                 name="preconditions"
                                 value={formData.preconditions}
                                 onChange={handleInputChange}
                                 className="editable-textarea"
                                 rows="1"
+                                data-test-id="edit-preconditions"
                             />
                         </div>
                         <table className="test-case-table">
@@ -282,7 +283,7 @@ const TestCaseDetail = () => {
                             ))}
                             </tbody>
                         </table>
-                        <button className="edit-button" onClick={() => setEditMode(true)}>Edit</button>
+                        <button className="edit-button" data-test-id="edit-button" onClick={() => setEditMode(true)}>Edit</button>
                     </>
                 )}
             </div>

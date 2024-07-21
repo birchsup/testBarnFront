@@ -29,10 +29,10 @@ const Header = () => {
                     Create Test Case
                 </button>
                 <button
-                    className={`header-button ${isActive('/createTestSuite') ? 'active' : ''}`}
-                    onClick={() => navigate('/createTestSuite')}
+                    className={`header-button ${isActive('/test-suites') ? 'active' : ''}`}
+                    onClick={() => navigate('/test-suites')}
                 >
-                    Create Test Suite
+                    List Of Test Suites
                 </button>
                 <button
                     className={`header-button ${isActive('/createTestRun') ? 'active' : ''}`}
