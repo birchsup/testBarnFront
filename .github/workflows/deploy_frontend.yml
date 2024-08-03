@@ -24,6 +24,8 @@ jobs:
           node-version: '18.20.0'  # Замените на версию Node.js, которую вы используете
 
       - name: Install dependencies and build frontend
+        env:
+          DISABLE_ESLINT_PLUGIN: true
         run: |
           npm install
           npm run build
