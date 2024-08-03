@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './TestSuiteDetails.css';
+import {link} from "../../ngrock";
 
 const TestSuiteDetails = () => {
     const [testSuite, setTestSuite] = useState(null);
@@ -13,7 +14,13 @@ const TestSuiteDetails = () => {
     const id = new URLSearchParams(search).get('id');
 
     const fetchTestSuiteDetails = () => {
-        fetch(`http://localhost:8080/test-suite?id=${id}`)
+        fetch(`${link}/test-suite?id=${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true'
+            }
+        })
             .then(response => response.json())
             .then(data => setTestSuite(data))
             .catch(error => console.error('Error fetching test suite details:', error));
@@ -24,15 +31,19 @@ const TestSuiteDetails = () => {
     }, [id]);
 
     useEffect(() => {
-        fetch(`http://localhost:8080/testcases`)
+        fetch(`${link}/testcases`)
             .then(response => response.json())
             .then(data => setAllTestCases(data))
             .catch(error => console.error('Error fetching all test cases:', error));
     }, []);
 
     const handleDeleteTestCase = (suiteId, caseId) => {
-        fetch(`http://localhost:8080/test-suite/remove-case?suite_id=${suiteId}&case_id=${caseId}`, {
-            method: 'DELETE'
+        fetch(`${link}/test-suite/remove-case?suite_id=${suiteId}&case_id=${caseId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true'
+            },
         })
             .then(() => {
                 fetchTestSuiteDetails(); // Refresh test suite details after deletion
@@ -41,10 +52,11 @@ const TestSuiteDetails = () => {
     };
 
     const handleAddTestCase = (suiteId, caseId) => {
-        fetch(`http://localhost:8080/test-suites/add-cases`, {
+        fetch(`${link}/test-suites/add-cases`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true'
             },
             body: JSON.stringify({ suite_id: suiteId, case_ids: [caseId] })
         })
@@ -55,10 +67,11 @@ const TestSuiteDetails = () => {
     };
 
     const handleCreateAndAddTestCase = (suiteId, testCaseName) => {
-        fetch(`http://localhost:8080/testcases`, {
+        fetch(`${link}/testcases`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true'
             },
             body: JSON.stringify({
                 test: {
