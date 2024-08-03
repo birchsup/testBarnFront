@@ -21,7 +21,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.20.4ß'  # Замените на версию Node.js, которую вы используете
+          node-version: '18.20.0'  # Замените на версию Node.js, которую вы используете
 
       - name: Install dependencies and build frontend
         run: |
