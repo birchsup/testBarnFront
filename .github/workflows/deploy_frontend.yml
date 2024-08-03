@@ -30,4 +30,4 @@ jobs:
 
       - name: Deploy to Raspberry Pi
         run: |
-          scp -r build/* dmitry@192.168.27.11:/path/to/frontend
+          scp -r build/* dmitry@192.168.27.11:/home/ubuntu/projects/frontend
