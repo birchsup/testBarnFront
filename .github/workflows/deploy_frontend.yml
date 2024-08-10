@@ -22,7 +22,7 @@ jobs:
         env:
           DISABLE_ESLINT_PLUGIN: true
         run: |
-          npm install
+          npm install --ipv4
           npm run build
 
       - name: Deploy to Raspberry Pi
