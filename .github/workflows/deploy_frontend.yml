@@ -13,10 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Update npm to latest version
+        run: |
+          npm install -g npm@latest --ipv4
+
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.20.0'  # Версия Node.js
+          node-version: '18.20.0'
 
       - name: Install dependencies and build frontend
         env:
@@ -25,8 +29,10 @@ jobs:
           npm install --ipv4
           npm run build
 
+      - name: Ensure target directory exists
+        run: |
+          mkdir -p /home/ubuntu/projects/frontend
+
       - name: Deploy to Raspberry Pi
         run: |
           cp -r build/* /home/ubuntu/projects/frontend
-
-#ыыыы
