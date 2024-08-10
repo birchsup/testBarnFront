@@ -28,3 +28,5 @@ jobs:
       - name: Deploy to Raspberry Pi
         run: |
           cp -r build/* /home/ubuntu/projects/frontend
+
+#ыыыы
