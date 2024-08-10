@@ -36,5 +36,5 @@ jobs:
 
       - name: Start the application
         run: |
-          cd /home/ubuntu/projects/frontend
+          cd /home/dmitry/projects/frontend
           npm start
