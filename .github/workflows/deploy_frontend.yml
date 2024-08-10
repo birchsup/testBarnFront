@@ -33,3 +33,8 @@ jobs:
       - name: Deploy to Raspberry Pi
         run: |
           cp -r build/* /home/dmitry/projects/frontend
+
+      - name: Start the application
+        run: |
+          cd /home/ubuntu/projects/frontend
+          npm start
