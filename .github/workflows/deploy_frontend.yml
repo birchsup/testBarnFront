@@ -13,20 +13,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Update npm to latest version
-        run: |
-          npm install -g npm@latest --ipv4
 
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18.20.0'
 
+      - name: Update npm to latest version
+        run: |
+          sudo apt install nodejs npm
+
       - name: Install dependencies and build frontend
         env:
           DISABLE_ESLINT_PLUGIN: true
         run: |
-          npm install --ipv4
+          npm install
           npm run build
 
       - name: Ensure target directory exists
