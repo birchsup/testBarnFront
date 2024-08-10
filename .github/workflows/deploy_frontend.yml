@@ -17,11 +17,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.20.0'
-
-      - name: Update npm to latest version
-        run: |
-          sudo apt install nodejs npm
+          node-version: '22.6.0'
 
       - name: Install dependencies and build frontend
         env:
