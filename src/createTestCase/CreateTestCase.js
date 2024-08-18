@@ -61,54 +61,54 @@ const CreateTestCase = () => {
     };
 
     return (
-        <div className="test-case-container">
-            <form onSubmit={handleSubmit} className="test-case-form">
-                <div className="test-case-detail">
-                    <div className="form-group">
-                        <label>Priority:</label>
-                        <input type="text" name="priority" value={testCase.priority} onChange={handleChange} />
+        <div className="test-case-container" data-test-id="test-case-container">
+            <form onSubmit={handleSubmit} className="test-case-form" data-test-id="test-case-form">
+                <div className="test-case-detail" data-test-id="test-case-detail">
+                    <div className="form-group" data-test-id="form-group-priority">
+                        <label data-test-id="label-priority">Priority:</label>
+                        <input type="text" name="priority" value={testCase.priority} onChange={handleChange} data-test-id="input-priority" />
                     </div>
-                    <div className="form-group">
-                        <label>Is Automated:</label>
-                        <select name="isAutomated" value={testCase.isAutomated} onChange={handleChange}>
-                            <option value="want to automate">Want to automate</option>
-                            <option value="can't be automated">Can't be automated</option>
-                            <option value="automated">Automated</option>
+                    <div className="form-group" data-test-id="form-group-isAutomated">
+                        <label data-test-id="label-isAutomated">Is Automated:</label>
+                        <select name="isAutomated" value={testCase.isAutomated} onChange={handleChange} data-test-id="select-isAutomated">
+                            <option value="want to automate" data-test-id="option-wantToAutomate">Want to automate</option>
+                            <option value="can't be automated" data-test-id="option-cantBeAutomated">Can't be automated</option>
+                            <option value="automated" data-test-id="option-automated">Automated</option>
                         </select>
                     </div>
-                    <div className="form-group">
-                        <label>Created By:</label>
-                        <input type="text" name="created_by" value={testCase.created_by} onChange={handleChange} required />
+                    <div className="form-group" data-test-id="form-group-createdBy">
+                        <label data-test-id="label-createdBy">Created By:</label>
+                        <input type="text" name="created_by" value={testCase.created_by} onChange={handleChange} required data-test-id="input-createdBy"/>
                     </div>
-                    <div className="form-group">
-                        <label>Created At:</label>
-                        <input type="date" name="created_at" value={testCase.created_at} onChange={handleChange} required />
+                    <div className="form-group" data-test-id="form-group-createdAt">
+                        <label data-test-id="label-createdAt">Created At:</label>
+                        <input type="date" name="created_at" value={testCase.created_at} onChange={handleChange} required data-test-id="input-createdAt"/>
                     </div>
                 </div>
-                <div className="test-case-steps">
-                    <div className="form-group">
-                        <label>Name:</label>
-                        <input type="text" name="name" value={testCase.name} onChange={handleChange} required />
-                        <label>Preconditions:</label>
-                        <textarea name="preconditions" value={testCase.preconditions} onChange={handleChange} rows="3" />
+                <div className="test-case-steps" data-test-id="test-case-steps">
+                    <div className="form-group" data-test-id="form-group-name">
+                        <label data-test-id="label-name">Name:</label>
+                        <input type="text" name="name" value={testCase.name} onChange={handleChange} required data-test-id="input-name"/>
+                        <label data-test-id="label-preconditions">Preconditions:</label>
+                        <textarea name="preconditions" value={testCase.preconditions} onChange={handleChange} rows="3" data-test-id="textarea-preconditions"/>
                     </div>
                     {testCase.steps.map((step, index) => (
-                        <div key={index} className="form-group-step">
-                            <label>Step {index + 1}</label>
-                            <div className="step-row">
-                                <textarea className="action-field" name="action" placeholder="Action"
-                                          value={step.action} onChange={(e) => handleStepChange(index, e)} rows="3"
-                                          required />
+                        <div key={index} className="form-group-step" data-test-id={`testCase-isStep-${index}`}>
+                            <label data-test-id={`label-step-${index}`}>Step {index + 1}</label>
+                            <div className="step-row" data-test-id={`step-row-${index}`}>
+                            <textarea className="action-field" name="action" placeholder="Action"
+                                      value={step.action} onChange={(e) => handleStepChange(index, e)} rows="3"
+                                      required data-test-id={`textarea-action-${index}`}/>
                                 <textarea className="result-field" name="expected_result" placeholder="Expected Result"
                                           value={step.expected_result} onChange={(e) => handleStepChange(index, e)}
-                                          rows="3" required />
+                                          rows="3" required data-test-id={`textarea-expectedResult-${index}`}/>
                                 {index === testCase.steps.length - 1 && (
-                                    <button type="button" onClick={addStep} className="add-step-button">Add Step</button>
+                                    <button type="button" onClick={addStep} className="add-step-button" data-test-id="button-addStep">Add Step</button>
                                 )}
                             </div>
                         </div>
                     ))}
-                    <button type="submit" className="create-button">Create</button>
+                    <button type="submit" className="create-button" data-test-id="button-create">Create</button>
                 </div>
             </form>
         </div>
