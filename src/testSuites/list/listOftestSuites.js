@@ -23,6 +23,22 @@ const TestSuitesList = () => {
         navigate(`/test-suite?id=${id}`);
     };
 
+    const handleDelete = async (e, id) => {
+        e.stopPropagation();
+        try {
+            await fetch(`${link}/test-suite/delete?id=${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'ngrok-skip-browser-warning': 'true'
+                }
+            });
+            setTestSuites(prev => prev.filter(suite => suite.id !== id));
+        } catch (error) {
+            console.error('Error deleting test suite:', error);
+        }
+    };
+
     return (
         <div className="test-suites-list-container">
             <h1>Test Suites</h1>
@@ -34,6 +50,7 @@ const TestSuitesList = () => {
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -45,13 +62,21 @@ const TestSuitesList = () => {
                         >
                             <td>{testSuite.id}</td>
                             <td>{testSuite.name}</td>
+                            <td>
+                                <button
+                                    className="btn btn-danger"
+                                    onClick={(e) => handleDelete(e, testSuite.id)}
+                                >
+                                    Delete
+                                </button>
+                            </td>
                         </tr>
                     ))}
                     <tr
                         onClick={() => navigate('/add-test-suite')}
                         className="test-suites-list-row placeholder-row"
                     >
-                        <td colSpan="2">+ Add New Test Suite</td>
+                        <td colSpan="3">+ Add New Test Suite</td>
                     </tr>
                     </tbody>
                 </table>

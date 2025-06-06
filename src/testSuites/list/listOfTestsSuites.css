@@ -34,3 +34,17 @@
 .test-suites-list-row:hover {
     background-color: var(--color-hover);
 }
+
+.test-suites-list-table .btn {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+
+.test-suites-list-table .btn-danger {
+    background-color: var(--color-danger);
+    color: var(--color-surface);
+}
+
+.test-suites-list-table .btn-danger:hover {
+    background-color: var(--color-danger-hover);
+}
