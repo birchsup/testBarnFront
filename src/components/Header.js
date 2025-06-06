@@ -10,7 +10,8 @@ const Header = () => {
     const isActive = (path) => location.pathname === path;
 
     return (
-        <header className="app-header">
+        <header className="app-header"
+                data-test-id="app-header">
             <div className="header-logo" onClick={() => navigate('/')}>
                 <img src={logo} alt="TestBarn Logo" className="logo-image" />
                 TestBarn
@@ -19,26 +20,30 @@ const Header = () => {
                 <button
                     className={`header-button ${isActive('/testcases') ? 'active' : ''}`}
                     onClick={() => navigate('/testcases')}
+                    data-test-id="button-allTests"
                 >
                     All Tests
                 </button>
                 <button
                     className={`header-button ${isActive('/create') ? 'active' : ''}`}
                     onClick={() => navigate('/create')}
+                    data-test-id="button-create"
                 >
                     Create Test Case
                 </button>
                 <button
                     className={`header-button ${isActive('/test-suites') ? 'active' : ''}`}
                     onClick={() => navigate('/test-suites')}
+                    data-test-id="button-test-suites"
                 >
                     List Of Test Suites
                 </button>
                 <button
-                    className={`header-button ${isActive('/createTestRun') ? 'active' : ''}`}
-                    onClick={() => navigate('/createTestRun')}
+                    className={`header-button ${isActive('/test-runs') ? 'active' : ''}`}
+                    onClick={() => navigate('/test-runs')}
+                    data-test-id="button-createTestRun"
                 >
-                    Create Test Run
+                    Test Runs
                 </button>
             </nav>
         </header>

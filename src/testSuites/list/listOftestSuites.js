@@ -47,7 +47,7 @@ const TestSuitesList = () => {
                         </tr>
                     ))}
                     <tr
-                        onClick={() => navigate('/create')}
+                        onClick={() => navigate('/add-test-suite')}
                         className="test-suites-list-row placeholder-row"
                     >
                         <td colSpan="2">+ Add New Test Suite</td>
