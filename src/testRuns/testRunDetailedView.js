@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './testRunDetailedView.css';
+import '../styles/theme.css';
 import StatusChart from '../components/statusChart';
 
 const statuses = ['pending', 'running', 'passed', 'failed', 'skipped'];

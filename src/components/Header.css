@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    background-color: black;
-    color: white;
+    background-color: var(--color-header-bg);
+    color: var(--color-surface);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -32,11 +32,11 @@
 }
 
 .header-button {
-    background-color: black; /* Более темный цвет для контраста */
+    background-color: var(--color-header-bg);
     border: none;
-    color: white;
-    padding: 10px 20px; /* Увеличено значение padding для большей ширины */
-    min-width: 160px; /* Минимальная ширина кнопок */
+    color: var(--color-surface);
+    padding: 10px 20px;
+    min-width: 160px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -44,12 +44,12 @@
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    white-space: nowrap; /* Предотвращение переноса текста */
+    white-space: nowrap;
 }
 
 .header-button:hover {
-    background-color: #282c34; /* Цвет заливки заголовка */
-    color: #2ff1f8; /* Цвет текста при наведении */
+    background-color: var(--color-header-hover);
+    color: var(--color-primary);
 }
 
 .header-button.active {
@@ -60,9 +60,9 @@
 .header-button.active::after {
     content: '';
     position: absolute;
-    bottom: -2px; /* Позиционирование линии снизу кнопки */
+    bottom: -2px;
     left: 0;
     right: 0;
     height: 2px;
-    background-color: #2ff1f8; /* Цвет линии */
+    background-color: var(--color-primary);
 }

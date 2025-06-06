@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './createTestCase.css';
+import '../styles/theme.css';
 import {link} from "../ngrock";
 
 const CreateTestCase = () => {
