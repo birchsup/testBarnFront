@@ -14,7 +14,7 @@
 .test-case-detail {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: var(--color-surface);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
@@ -30,7 +30,7 @@
     flex-direction: column;
     gap: 20px;
     flex: 2; /* Увеличение ширины правой части */
-    background-color: #f9f9f9;
+    background-color: var(--color-surface-alt);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -69,42 +69,40 @@
 }
 
 .add-step-button {
-    background-color: #282c34;
+    background-color: var(--color-primary);
     border: none;
-    color: white;
+    color: var(--color-surface);
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     font-size: 1em;
     cursor: pointer;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     height: 68px; /* Высота кнопки соответствует высоте полей */
 }
 
 .add-step-button:hover {
-    background-color: #3c4048;
-    color: #2ff1f8;
+    background-color: var(--color-primary-hover);
 }
 
 .create-button {
-    background-color: #282c34;
+    background-color: var(--color-primary);
     border: none;
-    color: white;
+    color: var(--color-surface);
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     font-size: 1em;
     cursor: pointer;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     width: fit-content; /* Ширина по содержимому */
     align-self: center; /* Выравнивание кнопки по центру */
 }
 
 .create-button:hover {
-    background-color: #3c4048;
-    color: #2ff1f8;
+    background-color: var(--color-primary-hover);
 }
 
 textarea {

@@ -6,6 +6,6 @@
 
 .chart-container h2 {
     font-size: 18px;
-    color: #ffffff;
+    color: var(--color-surface);
     margin-bottom: 10px;
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./listOfTestsSuites.css"
+import '../../styles/theme.css'
 import { link } from '../../ngrock';
 
 const TestSuitesList = () => {

@@ -1,5 +1,5 @@
 .home {
     display: flex;
-    color: #282c34;
+    color: var(--color-header-hover);
     text-align: center;
 }
