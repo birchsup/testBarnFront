@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './TestSuiteDetails.css';
 import { link } from "../../ngrock";
 
@@ -10,6 +10,7 @@ const TestSuiteDetails = () => {
     const [searchQuery, setSearchQuery] = useState('');
 
     const { search } = useLocation();
+    const navigate = useNavigate();
     const id = new URLSearchParams(search).get('id');
     const apiUrlDetails = `${link}/test-suite?id=${id}`.replace(/([^:]\/)\/+/g, "$1");
 
@@ -39,6 +40,10 @@ const TestSuiteDetails = () => {
             .then(data => setAllTestCases(data))
             .catch(error => console.error('Error fetching all test cases:', error));
     }, []);
+
+    const handleRowClick = (id) => {
+        navigate(`/testcases/${id}`);
+    };
 
     const handleDeleteTestCase = async (suiteId, caseId) => {
         try {
@@ -138,12 +143,21 @@ const TestSuiteDetails = () => {
                 </thead>
                 <tbody>
                     {testSuite.test_cases.map(testCase => (
-                        <tr key={testCase.id}>
+                        <tr
+                            key={testCase.id}
+                            onClick={() => !editMode && handleRowClick(testCase.id)}
+                            className={!editMode ? 'clickable-row' : ''}
+                        >
                             <td>{testCase.id}</td>
                             <td>{testCase.test.name}</td>
                             {editMode && (
                                 <td>
-                                    <button onClick={() => handleDeleteTestCase(testSuite.id, testCase.id)}>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleDeleteTestCase(testSuite.id, testCase.id);
+                                        }}
+                                    >
                                         Delete
                                     </button>
                                 </td>
