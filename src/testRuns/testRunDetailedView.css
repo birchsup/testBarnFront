@@ -1,0 +1,146 @@
+.test-run-list-container {
+    padding: 20px;
+    background-color: #1e1e1e;
+    /* Темный фон */
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.test-run-list-container h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.test-suite-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.test-suite-block {
+    background-color: #252526;
+    /* Темный фон блока */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.test-suite-block h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.test-run-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.test-run-list-table th,
+.test-run-list-table td {
+    border: 1px solid #444;
+    padding: 12px;
+    text-align: center;
+}
+
+.test-run-list-table th {
+    background-color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.test-run-list-table tr:nth-child(even) {
+    background-color: #292929;
+}
+
+.test-run-list-table tr:hover {
+    background-color: #3a3a3a;
+}
+
+/* Колонка Status: Выровнена по центру */
+.test-run-list-table td.status-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Индикаторы статусов */
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Цвета индикаторов статусов (менее яркие) */
+.status-indicator.pending {
+    background-color: #808080;
+}
+
+.status-indicator.running {
+    background-color: #4b6cb7;
+}
+
+.status-indicator.passed {
+    background-color: #4caf50;
+}
+
+.status-indicator.failed {
+    background-color: #e57373;
+}
+
+.status-indicator.skipped {
+    background-color: #f4a261;
+}
+
+/* Кнопки смены статуса (приглушенные цвета) */
+.status-button {
+    border: none;
+    padding: 5px 10px;
+    margin: 3px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    opacity: 0.85;
+}
+
+/* Более мягкие цвета кнопок */
+.status-button.pending {
+    background-color: #666;
+    color: #ddd;
+}
+
+.status-button.running {
+    background-color: #3a5da7;
+    color: #ddd;
+}
+
+.status-button.passed {
+    background-color: #3e8e41;
+    color: #ddd;
+}
+
+.status-button.failed {
+    background-color: #b94a48;
+    color: #ddd;
+}
+
+.status-button.skipped {
+    background-color: #d68a43;
+    color: #ddd;
+}
+
+.status-button:hover {
+    opacity: 1;
+}

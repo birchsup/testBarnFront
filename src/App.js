@@ -8,6 +8,11 @@ import CreateTestCase from './createTestCase/CreateTestCase';
 import Header from './components/Header';
 import TestSuitesList from './testSuites/list/listOftestSuites'
 import TestSuiteDetails from "./testSuites/detailedView/TestSuiteDetails";
+import TestRunsList from './testRuns/listOfTestRuns';
+import TestRunDetailedView from "./testRuns/testRunDetailedView";
+import AddTestSuite from './testSuites/newTestSuite/addTestSuite';
+
+
 
 function App() {
     return (
@@ -22,6 +27,9 @@ function App() {
                         <Route path="/create" element={<CreateTestCase />} />
                         <Route path="/test-suites" element={<TestSuitesList/>} />
                         <Route path="/test-suite" element={<TestSuiteDetails />} />
+                        <Route path="/test-runs" element={<TestRunsList />} />
+                        <Route path='/test-runs/:id' element={<TestRunDetailedView />} />
+                        <Route path="/add-test-suite" element={<AddTestSuite />} />
                     </Routes>
                 </main>
             </div>

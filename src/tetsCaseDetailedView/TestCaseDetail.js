@@ -15,7 +15,6 @@ const TestCaseDetail = () => {
         isAutomated: false,
         steps: [{ step: 1, action: '', expected_result: '' }],
         created_by: '',
-        created_at: '',
         suite_id: '',
         suite_name: ''
     });
@@ -38,7 +37,6 @@ const TestCaseDetail = () => {
                     isAutomated: data.test.isAutomated || false,
                     steps: data.test.steps || [{ step: 1, action: '', expected_result: '' }],
                     created_by: data.test.created_by || '',
-                    created_at: data.test.created_at || '',
                     suite_id: data.suite_id.Int64 || '',
                     suite_name: data.suite_name.String || ''
                 });
@@ -136,7 +134,6 @@ const TestCaseDetail = () => {
                     isAutomated: data.test.isAutomated || false,
                     steps: data.test.steps || [{ step: 1, action: '', expected_result: '' }],
                     created_by: data.test.created_by || '',
-                    created_at: data.test.created_at || '',
                     suite_id: data.suite_id.Int64 || '',
                     suite_name: data.suite_name.String || ''
                 });
@@ -153,7 +150,6 @@ const TestCaseDetail = () => {
             isAutomated: originalData.test.isAutomated || false,
             steps: originalData.test.steps || [{ step: 1, action: '', expected_result: '' }],
             created_by: originalData.test.created_by || '',
-            created_at: originalData.test.created_at || '',
             suite_id: originalData.suite_id.Int64 || '',
             suite_name: originalData.suite_name.String || ''
         });
@@ -289,7 +285,6 @@ const TestCaseDetail = () => {
             </div>
             <div className="test-case-meta">
                 <div className="meta-item"><strong>Created by:</strong> {testCase.test.created_by}</div>
-                <div className="meta-item"><strong>Created at:</strong> {testCase.test.created_at}</div>
                 <div className="meta-item"><strong>Is automated:</strong> {testCase.test.isAutomated ? 'Yes' : 'No'}
                 </div>
                 <div className="meta-item"><strong>Priority:</strong> {testCase.test.priority}</div>

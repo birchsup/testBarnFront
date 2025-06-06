@@ -11,8 +11,7 @@ const CreateTestCase = () => {
         steps: [
             { step: 1, action: '', expected_result: '' }
         ],
-        created_by: '',
-        created_at: ''
+        created_by: ''
     });
 
     const handleChange = (e) => {
@@ -40,10 +39,11 @@ const CreateTestCase = () => {
             steps: [...prevTestCase.steps, { step: testCase.steps.length + 1, action: '', expected_result: '' }]
         }));
     };
+    const apiUrl = `${link}/testcases`.replace(/([^:]\/)\/+/g, "$1");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch(`${link}/testcases`, {
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -79,10 +79,6 @@ const CreateTestCase = () => {
                     <div className="form-group" data-test-id="form-group-createdBy">
                         <label data-test-id="label-createdBy">Created By:</label>
                         <input type="text" name="created_by" value={testCase.created_by} onChange={handleChange} required data-test-id="input-createdBy"/>
-                    </div>
-                    <div className="form-group" data-test-id="form-group-createdAt">
-                        <label data-test-id="label-createdAt">Created At:</label>
-                        <input type="date" name="created_at" value={testCase.created_at} onChange={handleChange} required data-test-id="input-createdAt"/>
                     </div>
                 </div>
                 <div className="test-case-steps" data-test-id="test-case-steps">
